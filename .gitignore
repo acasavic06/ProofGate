@@ -15,15 +15,6 @@ models/*.pt
 models/*.pth
 models/*.ckpt
 
-# Generated results
-results/*
-!results/.gitkeep
-
-# Generated reports and demos
-demo.html
-report_sr.html
-report_en.html
-
 # Datasets
 data/
 datasets/
