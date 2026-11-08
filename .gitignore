@@ -1,0 +1,37 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Machine learning models
+models/*.pt
+models/*.pth
+models/*.ckpt
+
+# Generated results
+results/*
+!results/.gitkeep
+
+# Generated reports and demos
+demo.html
+report_sr.html
+report_en.html
+
+# Datasets
+data/
+datasets/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

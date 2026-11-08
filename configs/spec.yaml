@@ -1,0 +1,30 @@
+# Specifikacija robusnosti (sta dokazujemo i na kom opsegu)
+seed: 0
+
+train:
+  epochs: 10
+  lr: 0.001
+
+harden:
+  epochs: 12
+  lr: 0.0005
+  eps: 0.00784       # 2/255, PGD trening
+  pgd_steps: 7
+  contrast: [0.75, 1.25]     # augmentacija malo sira od opsega koji dokazujemo
+  brightness: [-0.12, 0.12]
+  cert_weight: 1.0             # trening ka sertifikatu (0 = iskljuceno)
+  cert_contrast: [0.7, 1.3]    # opseg za koji model ucimo da bude dokaziv
+  cert_brightness: [-0.15, 0.15]
+  ramp_epochs: 4               # kutija raste od 0 do punog opsega u prvih N epoha
+
+verify:
+  method: crown        # crown (auto_LiRPA) ili ibp (rezerva bez auto_LiRPA)
+  n_samples: 200       # broj test slika na kojima radimo dokaz
+  seed: 0
+  linf_eps: [0.00392, 0.00784]   # 1/255 i 2/255
+  pgd_steps: 40
+  pgd_restarts: 2
+  contrast: [0.7, 1.3]           # +-10% kontrasta //promenjeno, ne vazi vise
+  brightness: [-0.15, 0.15]      # +-5% osvetljenja //promenjeno, ne vazi vise
+  attack_grid: 21
+  max_depth: 6

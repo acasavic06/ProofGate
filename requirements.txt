@@ -1,0 +1,6 @@
+numpy
+PyYAML
+matplotlib
+medmnist
+graphviz
+appdirs
